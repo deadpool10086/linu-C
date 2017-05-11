@@ -1,0 +1,40 @@
+
+function.o：     文件格式 elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <add>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	f3 0f 11 45 ec       	movss  %xmm0,-0x14(%rbp)
+   9:	f3 0f 11 4d e8       	movss  %xmm1,-0x18(%rbp)
+   e:	f3 0f 10 45 ec       	movss  -0x14(%rbp),%xmm0
+  13:	f3 0f 58 45 e8       	addss  -0x18(%rbp),%xmm0
+  18:	f3 0f 11 45 fc       	movss  %xmm0,-0x4(%rbp)
+  1d:	f3 0f 10 45 fc       	movss  -0x4(%rbp),%xmm0
+  22:	5d                   	pop    %rbp
+  23:	c3                   	retq   
+
+0000000000000024 <add_and_multiply>:
+  24:	55                   	push   %rbp
+  25:	48 89 e5             	mov    %rsp,%rbp
+  28:	48 83 ec 20          	sub    $0x20,%rsp
+  2c:	f3 0f 11 45 ec       	movss  %xmm0,-0x14(%rbp)
+  31:	f3 0f 11 4d e8       	movss  %xmm1,-0x18(%rbp)
+  36:	f3 0f 10 45 e8       	movss  -0x18(%rbp),%xmm0
+  3b:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  3e:	0f 28 c8             	movaps %xmm0,%xmm1
+  41:	89 45 e4             	mov    %eax,-0x1c(%rbp)
+  44:	f3 0f 10 45 e4       	movss  -0x1c(%rbp),%xmm0
+  49:	e8 00 00 00 00       	callq  4e <add_and_multiply+0x2a>
+  4e:	66 0f 7e c0          	movd   %xmm0,%eax
+  52:	89 45 fc             	mov    %eax,-0x4(%rbp)
+  55:	f3 0f 10 4d fc       	movss  -0x4(%rbp),%xmm1
+  5a:	f3 0f 10 05 00 00 00 	movss  0x0(%rip),%xmm0        # 62 <add_and_multiply+0x3e>
+  61:	00 
+  62:	f3 0f 59 c1          	mulss  %xmm1,%xmm0
+  66:	f3 0f 11 45 fc       	movss  %xmm0,-0x4(%rbp)
+  6b:	f3 0f 10 45 fc       	movss  -0x4(%rbp),%xmm0
+  70:	c9                   	leaveq 
+  71:	c3                   	retq   

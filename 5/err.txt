@@ -1,0 +1,12 @@
+stdin isfully-buffered
+buffer size is 0
+file discriptor is 0
+
+stdout isfully-buffered
+buffer size is 4096
+file discriptor is 1
+
+stderr isunbuffered
+buffer size is 0
+file discriptor is 2
+
