@@ -1,2 +1,0 @@
-pthread_mutex: pthread_detach.c
-	gcc -lpthread pthread_mutex.c -o pthread_mutex
